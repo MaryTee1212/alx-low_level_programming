@@ -1,25 +1,20 @@
 #include "main.h"
-
 /**
- * _memset - Function that changes the value of b for another in the first n bytes
+ * _memset - fill a block of memory with a specific value
+ * @s: starting address of memory to be filled
+ * @b: the desired value
+ * @n: number of bytes to be changed
  *
- * @s: pointer to the variable's address to be overwritten with 'b'
- * @b: variable that contains the value to be overwritten in the pointer '*s'
- * @n: number of bytes to be overwritten in pointer '*s'
- *
- * Return: pointer
+ * Return: changed array with new value for n bytes
  */
-
 char *_memset(char *s, char b, unsigned int n)
 {
-	unsigned int counter = 0;
+	int i = 0;
 
-	while (counter < n)
+	for (; n > 0; i++)
 	{
-		/*s position should raise and overwritten n */
-		s[counter] = b;
-		counter++;
+		s[i] = b;
+		n--;
 	}
-
 	return (s);
 }
