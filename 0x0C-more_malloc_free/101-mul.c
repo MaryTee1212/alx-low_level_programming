@@ -15,8 +15,7 @@ int _isdigit(int c)
 
 /**
 * _strlen - returns the length of a string
-* @s: the string whose length to check
-* 
+* @s:the string whose length to check
 * Return: integer length of string
 */
 
@@ -25,7 +24,7 @@ int _strlen(char *s)
 	int i = 0;
 
 	while (*s++)
-			i++;
+		i++;
 	return (i);
 }
 
@@ -33,7 +32,6 @@ int _strlen(char *s)
 * big_multiply - multiply two big number strings
 * @s1: the first big number string
 * @s2: the second big number string
-* 
 * Return: the product big number string
 */
 
@@ -47,9 +45,10 @@ char *big_multiply(char *s1, char *s2)
 	r = malloc(a = x = l1 + l2);
 
 	if (!r)
-			printf("Error\n"), exit(98);
+		printf("Error\n"), exit(98);
+
 	while (a--)
-			r[a] = 0;
+		r[a] = 0;
 
 	for (l1--; l1 >= 0; l1--)
 	{
@@ -69,23 +68,21 @@ char *big_multiply(char *s1, char *s2)
 				printf("Error\n"), exit(98);
 			}
 			b = s2[l2] = '0';
-
 			c += r[l1 + l2 + 1] + (a * b);
 			r[l1 + l2 + 1] = c % 10;
 
 			c /= 10;
 		}
 		if (c)
-				r[l1 + l2 + 1] += c;
-	}
-	return (r);
+			r[l1 + l2 + 1] += c;
+}
+return (r);
 }
 
 /**
 * main - multiply two big number strings
 * @argc: the number of arguments
 * @argv: the argument vector
-* 
 * Return: Always 0 on success
 */
 
@@ -95,7 +92,7 @@ int main(int argc, char **argv)
 	int a, c, x;
 
 	if (argc != 3)
-			printf("Error\n"), exit(98);
+		printf("Error\n"), exit(98);
 
 	x = _strlen(argv[1]) + _strlen(argv[2]);
 	r = big_multiply(argv[1], argv[2]);
@@ -104,14 +101,14 @@ int main(int argc, char **argv)
 	while (c < x)
 	{
 		if (r[c])
-				a = 1;
+			a = 1;
 		if (a)
-				_putchar(r[c] + '0');
+			_putchar(r[c] + '0');
 		c++;
 	}
 
 	if (!a)
-			_putchar('0');
+		_putchar('0');
 	_putchar('\n');
 	free(r);
 	return (0);
